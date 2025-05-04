@@ -1,0 +1,2060 @@
+{
+	"info": {
+		"_postman_id": "9db71294-f534-4f68-82ce-c1899a4dc4fa",
+		"name": "Hoteleria Gallito Corp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37951890"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Registrar cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstName",
+									"value": "Paco",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "perez",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "dangadfe@kinal.edu.gt",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "ta3CMdany!",
+									"type": "text"
+								},
+								{
+									"key": "rol",
+									"value": "cliente",
+									"type": "text"
+								},
+								{
+									"key": "firebaseUid",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5500/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registrar Admin Plataforma",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstName",
+									"value": "pruebas",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "perez",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "adminPlataforma@kinal.edu.gt",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "ta3CMdany!",
+									"type": "text"
+								},
+								{
+									"key": "rol",
+									"value": "clientePlataforma",
+									"type": "text"
+								},
+								{
+									"key": "firebaseUid",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5500/api/auth/registerAdmin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"auth",
+								"registerAdmin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setGlobalVariable(\"token\", data.token)\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "adminPlataforma@kinal.edu.gt",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "ta3CMdany!",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5500/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5500/api/auth/test",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"auth",
+								"test"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Obtener todos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5500/api/users/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Por id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5500/api/users/6816b4734097ddcf1cfc9ba6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"users",
+								"6816b4734097ddcf1cfc9ba6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cambiar Rol",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "rol",
+									"value": "adminPlataforma",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5500/api/users/6816b4734097ddcf1cfc9ba6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"users",
+								"6816b4734097ddcf1cfc9ba6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Usuario",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:5500/api/users/6816b4734097ddcf1cfc9ba6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"users",
+								"6816b4734097ddcf1cfc9ba6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Usuario",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstName",
+									"value": "Paco",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "perez",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "dangadsfafadfe@kinal.edu.gt",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "ta3CMdany!",
+									"type": "text"
+								},
+								{
+									"key": "rol",
+									"value": "adminPlataforma",
+									"type": "text"
+								},
+								{
+									"key": "firebaseUid",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5500/api/users/6816ecb66964cf8a7e8d88ae",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"users",
+								"6816ecb66964cf8a7e8d88ae"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Hotel",
+			"item": [
+				{
+					"name": "Crear hotel",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Pruebas44",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "5a Avenida 10-55",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Ciudad de Guatemala",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "Guatemala",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Hotel de lujo con spa y piscina",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "reservas@lasrosas.gt",
+									"type": "text"
+								},
+								{
+									"key": "amenities",
+									"value": "Piscina",
+									"type": "text"
+								},
+								{
+									"key": "amenities",
+									"value": "wifi",
+									"type": "text"
+								},
+								{
+									"key": "amenities",
+									"value": "Gimnasio",
+									"type": "text"
+								},
+								{
+									"key": "images",
+									"value": "url del htel",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "1234-5678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5500/api/hotels/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"hotels",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar hotel",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "otro nombre",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "5a Avenida 10-55",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Ciudad de Guatemala",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "Guatemala",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Hotel de lujo con spa y piscina",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "reservas@lasrosas.gt",
+									"type": "text"
+								},
+								{
+									"key": "amenities",
+									"value": "Piscina",
+									"type": "text"
+								},
+								{
+									"key": "amenities",
+									"value": "wifi",
+									"type": "text"
+								},
+								{
+									"key": "amenities",
+									"value": "Gimnasio",
+									"type": "text"
+								},
+								{
+									"key": "images",
+									"value": "url del htel",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "1234-5678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5500/api/hotels/6816b9f8f65829310fbb2ac7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"hotels",
+								"6816b9f8f65829310fbb2ac7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener todos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5500/api/hotels/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"hotels",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener por Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5500/api/hotels/6816b9f8f65829310fbb2ac7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"hotels",
+								"6816b9f8f65829310fbb2ac7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Hotel",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5500/api/hotels/6816b956f65829310fbb2ab7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"hotels",
+								"6816b956f65829310fbb2ab7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Room",
+			"item": [
+				{
+					"name": "Crear hotel Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "roomNumber",
+									"value": "106",
+									"type": "text"
+								},
+								{
+									"key": "roomType",
+									"value": "suite",
+									"type": "text"
+								},
+								{
+									"key": "capacity",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "AVAILABLE",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Hotel de lujo con vistas al mar",
+									"type": "text"
+								},
+								{
+									"key": "services",
+									"value": "Wi-Fi, Aire acondicionado, TV",
+									"type": "text"
+								},
+								{
+									"key": "images",
+									"value": "url de la imagen",
+									"type": "text"
+								},
+								{
+									"key": "hotel",
+									"value": "6816b9f8f65829310fbb2ac7",
+									"type": "text"
+								},
+								{
+									"key": "pricePerNight",
+									"value": "1500",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5500/api/rooms/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"rooms",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Hotel",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "roomNumber",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "roomType",
+									"value": "suite",
+									"type": "text"
+								},
+								{
+									"key": "capacity",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "AVAILABLE",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Hotel de lujo con vistas al mar",
+									"type": "text"
+								},
+								{
+									"key": "services",
+									"value": "Wi-Fi, Aire acondicionado, TV",
+									"type": "text"
+								},
+								{
+									"key": "images",
+									"value": "url de la imagen",
+									"type": "text"
+								},
+								{
+									"key": "hotel",
+									"value": "6816b9f8f65829310fbb2ac7",
+									"type": "text"
+								},
+								{
+									"key": "pricePerNight",
+									"value": "1500",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5500/api/rooms/6816c09a4fe2544e3770fa14",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"rooms",
+								"6816c09a4fe2544e3770fa14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener todos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5500/api/rooms/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"rooms",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener por Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5500/api/rooms/6816c0b54fe2544e3770fa23",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"rooms",
+								"6816c0b54fe2544e3770fa23"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Hotel",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5500/api/rooms/6816c0ae4fe2544e3770fa17",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"rooms",
+								"6816c0ae4fe2544e3770fa17"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Event",
+			"item": [
+				{
+					"name": "Crear evento",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Fiesta Anual",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Evento con música en vivo y cena incluida",
+									"type": "text"
+								},
+								{
+									"key": "startDate",
+									"value": "2025-06-15",
+									"type": "text"
+								},
+								{
+									"key": "endDate",
+									"value": "2025-06-15",
+									"type": "text"
+								},
+								{
+									"key": "hotel",
+									"value": "6816b972f65829310fbb2aba",
+									"type": "text"
+								},
+								{
+									"key": "resources[0][type]",
+									"value": "sillas",
+									"type": "text"
+								},
+								{
+									"key": "resources[0][quantity]",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "resources[0][price]",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "images",
+									"value": "url de imagen",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5500/api/events/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"events",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar evento",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "asdf",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Evento con música en vivo y cena incluida",
+									"type": "text"
+								},
+								{
+									"key": "startDate",
+									"value": "2025-06-15",
+									"type": "text"
+								},
+								{
+									"key": "endDate",
+									"value": "2025-06-15",
+									"type": "text"
+								},
+								{
+									"key": "hotel",
+									"value": "6816b972f65829310fbb2aba",
+									"type": "text"
+								},
+								{
+									"key": "resources[0][type]",
+									"value": "sillas",
+									"type": "text"
+								},
+								{
+									"key": "resources[0][quantity]",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "resources[0][price]",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "images",
+									"value": "url de imagen",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5500/api/events/6816f1c9e762db3c683536e0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"events",
+								"6816f1c9e762db3c683536e0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener todos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5500/api/events/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"events",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener por Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5500/api/events/6816f1c9e762db3c683536e0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"events",
+								"6816f1c9e762db3c683536e0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Evento",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5500/api/events/6816f1c9e762db3c683536e0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"events",
+								"6816f1c9e762db3c683536e0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Invoice",
+			"item": [
+				{
+					"name": "Crear factura",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "reservation",
+									"value": "6816f9e1698686f185764d73",
+									"type": "text"
+								},
+								{
+									"key": "items[0][description]",
+									"value": "Estadía de 7 noches",
+									"type": "text"
+								},
+								{
+									"key": "items[0][price]",
+									"value": "700",
+									"type": "text"
+								},
+								{
+									"key": "items[1][description]",
+									"value": "Desayuno incluido",
+									"type": "text"
+								},
+								{
+									"key": "items[1][price]",
+									"value": "70",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5500/api/invoices/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"invoices",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar factura",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "reservation",
+									"value": "6816f9e1698686f185764d73",
+									"type": "text"
+								},
+								{
+									"key": "items[0][description]",
+									"value": "Estadía de 7 noches",
+									"type": "text"
+								},
+								{
+									"key": "items[0][price]",
+									"value": "7007",
+									"type": "text"
+								},
+								{
+									"key": "items[1][description]",
+									"value": "Desayuno incluido",
+									"type": "text"
+								},
+								{
+									"key": "items[1][price]",
+									"value": "70",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5500/api/invoices/6816fc356c971d0af91e2591",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"invoices",
+								"6816fc356c971d0af91e2591"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener todos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5500/api/invoices/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"invoices",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener por Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5500/api/events/6816f1c9e762db3c683536e0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"events",
+								"6816f1c9e762db3c683536e0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar factura",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:5500/api/invoices/6816fc346c971d0af91e258e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"invoices",
+								"6816fc346c971d0af91e258e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payment",
+			"item": [
+				{
+					"name": "Crear factura",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "reservation",
+									"value": "6816f9e1698686f185764d73",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "770",
+									"type": "text"
+								},
+								{
+									"key": "method",
+									"value": "CARD",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "SUCCESS",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5500/api/payments/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"payments",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Payment",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "reservation",
+									"value": "6816f9e1698686f185764d73",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "7700",
+									"type": "text"
+								},
+								{
+									"key": "method",
+									"value": "CARD",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "SUCCESS",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5500/api/payments/6816fe5d31c36aa534978acf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"payments",
+								"6816fe5d31c36aa534978acf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener todos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5500/api/payments/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"payments",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener por Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5500/api/payments/6816fe5d31c36aa534978acf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"payments",
+								"6816fe5d31c36aa534978acf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar factura",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:5500/api/payments/6816fe5d31c36aa534978acf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"payments",
+								"6816fe5d31c36aa534978acf"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "category",
+			"item": [
+				{
+					"name": "Obtener todos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5500/api/category/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear categoria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Standard",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Categoría estándar para habitaciones económicas",
+									"type": "text"
+								},
+								{
+									"key": "hotel",
+									"value": "6816b972f65829310fbb2aba",
+									"type": "text"
+								},
+								{
+									"key": "rating",
+									"value": "4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5500/api/category/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizar categoria",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "TOP",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Categoría estándar para habitaciones económicas",
+									"type": "text"
+								},
+								{
+									"key": "hotel",
+									"value": "6816b972f65829310fbb2aba",
+									"type": "text"
+								},
+								{
+									"key": "rating",
+									"value": "4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5500/api/category/6816f6572cd95defe6e448ad",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"category",
+								"6816f6572cd95defe6e448ad"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener por Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5500/api/category/6816f6572cd95defe6e448ad",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"category",
+								"6816f6572cd95defe6e448ad"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener por Id Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5500/api/category/6816f6572cd95defe6e448ad",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"category",
+								"6816f6572cd95defe6e448ad"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reservation",
+			"item": [
+				{
+					"name": "Obtener todos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5500/api/reservations/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"reservations",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear reserva",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "user",
+									"value": "6816c4e621c1caa043f8a92b",
+									"type": "text"
+								},
+								{
+									"key": "hotel",
+									"value": "6816b972f65829310fbb2aba",
+									"type": "text"
+								},
+								{
+									"key": "room",
+									"value": "6816c09a4fe2544e3770fa14",
+									"type": "text"
+								},
+								{
+									"key": "startDate",
+									"value": "2025-07-01",
+									"type": "text"
+								},
+								{
+									"key": "endDate",
+									"value": "2025-07-07",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "PENDING",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5500/api/reservations/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"reservations",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar reserva",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "user",
+									"value": "6816c4e621c1caa043f8a92b",
+									"type": "text"
+								},
+								{
+									"key": "hotel",
+									"value": "6816b972f65829310fbb2aba",
+									"type": "text"
+								},
+								{
+									"key": "room",
+									"value": "6816c09a4fe2544e3770fa14",
+									"type": "text"
+								},
+								{
+									"key": "startDate",
+									"value": "2025-07-01",
+									"type": "text"
+								},
+								{
+									"key": "endDate",
+									"value": "2025-07-10",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "PENDING",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5500/api/reservations/6816f92a698686f185764d60",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"reservations",
+								"6816f92a698686f185764d60"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener por Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5500/api/reservations/6816f92a698686f185764d60",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"reservations",
+								"6816f92a698686f185764d60"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar reserva",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5500/api/reservations/6816f92a698686f185764d60",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"reservations",
+								"6816f92a698686f185764d60"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Report",
+			"item": [
+				{
+					"name": "Reservas por usuario",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5500/api/reports/reservations/user/6816c4e621c1caa043f8a92b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"reports",
+								"reservations",
+								"user",
+								"6816c4e621c1caa043f8a92b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pagos por hotel",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5500/api/reports/payments/hotel/6816b972f65829310fbb2aba",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"reports",
+								"payments",
+								"hotel",
+								"6816b972f65829310fbb2aba"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Facturas por usuario",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5500/api/reports/invoices/user/6816c4e621c1caa043f8a92b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"reports",
+								"invoices",
+								"user",
+								"6816c4e621c1caa043f8a92b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reservas por hotel",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5500/api/reports/reservations/hotel/6816b972f65829310fbb2aba",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5500",
+							"path": [
+								"api",
+								"reports",
+								"reservations",
+								"hotel",
+								"6816b972f65829310fbb2aba"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
